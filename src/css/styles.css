@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root
+{
+    --background-color: #ffffff;
+    --text-color: #000000;
+    padding: 0px;
+    margin: 0px;
+}
+
+.dark-mode
+{
+    --background-color: #121212;
+    --text-color: #ffffff;
+}
+
+.main-container
+{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+}
+
+.navbar
+{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    -webkit-app-region: drag;
+    justify-content: space-between;
+}
+
+.logo
+{
+    user-select: none;;
+}
+
+.logo > img
+{
+    width: 25px;
+    height: 25px;
+}
+
+.title
+{
+    margin-left: 3px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Inter;
+    user-select: none;
+}
+
+.nav-title
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-window-controls
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 5px;
+    -webkit-app-region: no-drag;
+    user-select: none;
+}
+
+.title-bar-maximize-button 
+{
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
+    cursor: pointer;
+    border: none;
+    background-image: url('../../assets/buttons/titlebar/maximizeButton.svg');
+}
+
+.title-bar-restore-button 
+{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+    background-image: url('../../assets/buttons/titlebar/restoreButton.svg');
+}
+
+.title-bar-minimize-button 
+{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+    background-image: url('../../assets/buttons/titlebar/minimizeButton.svg');
+}
+
+.title-bar-close-button 
+{
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
+    cursor: pointer;
+    border: none;
+    background-image: url('../../assets/buttons/titlebar/closeButton.svg');
+}
+
+.title-bar-restore-button :hover,
+.title-bar-maximize-button :hover,
+.title-bar-minimize-button:hover,
+.title-bar-close-button :hover {
+    background-color: grey;
+}

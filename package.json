@@ -1,0 +1,15 @@
+{
+  "name": "memopop",
+  "version": "1.0.0",
+  "description": "Sticky memo application",
+  "main": "src/electron/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Lee Ki Joon",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^36.4.0"
+  }
+}
