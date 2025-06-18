@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
 :root
 {
     --background-color: #ffffff;
     --text-color: #000000;
-    padding: 0px;
-    margin: 0px;
 }
 
 .dark-mode
@@ -17,9 +22,11 @@
 
 .main-container
 {
+    display: flex;
+    flex-direction: column;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: Arial, sans-serif;
+    height: 100vh;
 }
 
 .navbar
@@ -31,6 +38,7 @@
     flex-direction: row;
     -webkit-app-region: drag;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .logo
@@ -48,8 +56,8 @@
 {
     margin-left: 3px;
     font-size: 18px;
-    font-weight: bold;
-    font-family: Inter;
+    font-weight: 800;
+    font-family: Nunito;
     user-select: none;
 }
 
@@ -131,4 +139,73 @@
 .title-bar-minimize-button:hover,
 .title-bar-close-button :hover {
     background-color: grey;
+}
+
+.contents
+{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.footbar
+{
+    display: block;
+    background-color: var(--background-color);
+}
+
+.footbar-contents
+{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.copyright
+{
+    font-family: Nunito;
+    color: gray;
+    font-size: 10px;
+}
+
+.search-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0px 15px 0px 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.080);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  caret-color: rgb(255, 81, 0);
+}
+
+.input::placeholder
+{
+    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.labelforsearch {
+  cursor: text;
+  padding: 0px 12px;
+}
+
+.searchIcon {
+  width: 13px;
+}
+
+.searchIcon path {
+  fill: rgb(114, 114, 114);
 }
