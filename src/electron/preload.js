@@ -32,6 +32,17 @@ const WINDOW_API = {
     maximizeRestoreWindow: () =>
     {
         ipcRenderer.send('maximize-restore-window');
+    },
+
+    //memo preload
+    openMemo: (id) => 
+    {
+        ipcRenderer.send('open-memo', id)
+    },
+
+    onMemoId: (callback) => 
+    {
+        ipcRenderer.on('memo-id', (event, id) => callback(id))
     }
 }
 

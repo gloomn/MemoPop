@@ -6,9 +6,10 @@ const {
   ipcMain 
 } = require('electron/main')
 const path = require('path')
+let window;
 
 function createWindow () {
-  let window = new BrowserWindow
+  window = new BrowserWindow
     ({
         width: 400,
         height: 600,
@@ -71,6 +72,31 @@ function createWindow () {
 
   window.loadFile('src/html/index.html')
 }
+
+ipcMain.on('open-memo', (event, id) => 
+{
+  const memoWindow = new BrowserWindow({
+  width: 300,
+  height: 300,
+  modal: false,
+  frame: false,
+  autoHideMenuBar: true,
+  resizable: false,
+  webPreferences: 
+  {
+    nodeIntegration: false,
+    contextIsolation: true,
+    preload: path.join(__dirname, 'preload.js') 
+  },
+  icon: path.join(__dirname, '../../assets/icons/win/png/icon.png'),
+  });
+
+  memoWindow.loadFile('src/html/popup.html');
+  memoWindow.webContents.once('did-finish-load', () => 
+  {
+    memoWindow.webContents.send('memo-id', id);
+  });
+});
 
 app.whenReady().then(() => {
   createWindow()
