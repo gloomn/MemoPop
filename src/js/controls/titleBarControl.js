@@ -7,7 +7,8 @@ closeWindowButton.addEventListener('click', () =>
 });
 
 //Minimize window button event listener
-minimizeWindowButton.addEventListener('click', () => {
+minimizeWindowButton.addEventListener('click', () => 
+{
     window.api.minimizeWindow();
 });
 

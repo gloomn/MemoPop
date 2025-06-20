@@ -7,8 +7,10 @@ const {
 } = require('electron/main')
 const path = require('path')
 let window;
+const memoWindows = {};
 
-function createWindow () {
+function createWindow () 
+{
   window = new BrowserWindow
     ({
         width: 400,
@@ -75,20 +77,20 @@ function createWindow () {
 
 ipcMain.on('open-memo', (event, id) => 
 {
-  const memoWindow = new BrowserWindow({
-  width: 300,
-  height: 300,
-  modal: false,
-  frame: false,
-  autoHideMenuBar: true,
-  resizable: false,
-  webPreferences: 
+  const memoWindow = new BrowserWindow(
   {
-    nodeIntegration: false,
-    contextIsolation: true,
-    preload: path.join(__dirname, 'preload.js') 
-  },
-  icon: path.join(__dirname, '../../assets/icons/win/png/icon.png'),
+    width: 300,
+    height: 300,
+    modal: false,
+    frame: false,
+    autoHideMenuBar: true,
+    webPreferences: 
+    {
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
+    },
+    icon: path.join(__dirname, '../../assets/icons/win/png/icon.png'),
   });
 
   memoWindow.loadFile('src/html/popup.html');
@@ -96,20 +98,40 @@ ipcMain.on('open-memo', (event, id) =>
   {
     memoWindow.webContents.send('memo-id', id);
   });
+
+  memoWindows[id] = memoWindow;
+
+  memoWindow.on('closed', () => 
+  {
+    delete memoWindows[id];
+  });
 });
 
-app.whenReady().then(() => {
-  createWindow()
+ipcMain.on('close-memo-window', (event, id) => 
+{
+  if (memoWindows[id]) 
+  {
+    memoWindows[id].close();
+  }
+});
 
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
+app.whenReady().then(() => 
+{
+  createWindow();
+
+  app.on('activate', () => 
+  {
+    if (BrowserWindow.getAllWindows().length === 0) 
+    {
       createWindow()
     }
-  })
-})
+  });
+});
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
+app.on('window-all-closed', () => 
+{
+  if (process.platform !== 'darwin') 
+  {
+    app.quit();
   }
-})
+});

@@ -34,16 +34,20 @@ const WINDOW_API = {
         ipcRenderer.send('maximize-restore-window');
     },
 
-    //memo preload
+    closeMemoWindow: (id) =>
+    {
+        ipcRenderer.send('close-memo-window', id);
+    },
+
+    
     openMemo: (id) => 
     {
         ipcRenderer.send('open-memo', id)
     },
 
-    onMemoId: (callback) => 
+    receiveMemoId: (callback) => 
     {
         ipcRenderer.on('memo-id', (event, id) => callback(id))
-    }
+    },
 }
-
 contextBridge.exposeInMainWorld('api', WINDOW_API);
