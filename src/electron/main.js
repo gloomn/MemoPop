@@ -81,6 +81,8 @@ ipcMain.on('open-memo', (event, id) =>
   {
     width: 300,
     height: 300,
+    minWidth: 300,
+    minHeight: 300,
     modal: false,
     frame: false,
     autoHideMenuBar: true,

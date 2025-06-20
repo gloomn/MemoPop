@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Memo</title>
+    <title>Memo Pop</title>
     <link rel="stylesheet" href="../css/memoStyle.css">
     <script src="../js/popup/popupControl.js" defer></script>
 </head>
 <body>
     <div class="memo-container">
         <div class="memo-navbar">
-            <button class="memo-new-memo-button">+</button>
+            <button id="addNewMemoButton" class="memo-new-memo-button" title="Add new memo" alt="Add new memo button">+</button>
             <button id="closeMemoWindowButton" class="memo-close-button" title="Close" alt="Close Button"></button>
         </div>
         <div class="memo-contents">
-            
+            <div class="text-area" spellcheck="false" contenteditable="true">
+
+            </div>
         </div>
-        <div class="memo-footer">
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
+        <div id="memoFocusFooter" class="memo-footer">
+            <button class="bold-button" title="Bold"></button>
+            <button class="italic-button" title="Italic"></button>
+            <button class="underline-button" title="Underline"></button>
+            <button class="strikethrough-button" title="Strike through"></button>
+            <button class="list-button" title="List"></button>
+            <button class="add-photo-button" title="Add photo"></button>
+            <button class="change-color-button" title="Change memo color"></button>
+            <button class="show-memo-list-button" title="Show memo list"></button>
+            <button class="delete-memo-button" title="Delete"></button>
         </div>
     </div>
 </body>

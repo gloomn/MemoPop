@@ -39,7 +39,6 @@ const WINDOW_API = {
         ipcRenderer.send('close-memo-window', id);
     },
 
-    
     openMemo: (id) => 
     {
         ipcRenderer.send('open-memo', id)

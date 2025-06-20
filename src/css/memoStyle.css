@@ -29,6 +29,27 @@ html, body
 {
     flex: 1;
     padding: 5px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.memo-contents::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+.memo-contents::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.memo-contents::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.memo-contents::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 .memo-footer {
@@ -36,6 +57,15 @@ html, body
     flex-direction: row;
     padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center;
+}
+
+#memoFocusFooter
+{
+    display: flex;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .memo-new-memo-button
@@ -66,4 +96,173 @@ html, body
     cursor: pointer;
     border: none;
     background-image: url('../../assets/buttons/titlebar/closeButton.svg');
+}
+
+.memo-new-memo-button:hover
+{
+    color: rgb(117, 117, 117);
+    transition: 0.3s ease;
+}
+
+.memo-close-button:hover
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.text-area
+{
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    outline: none;
+}
+
+.bold-button
+{
+    -webkit-app-region: no-drag;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/boldButton.svg');
+}
+
+.bold-button:active
+{
+    filter: brightness(0.2);
+}
+
+.italic-button
+{
+    -webkit-app-region: no-drag;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/italicButton.svg');
+}
+
+.underline-button
+{
+    -webkit-app-region: no-drag;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/underlineButton.svg');
+}
+
+.strikethrough-button
+{
+    -webkit-app-region: no-drag;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/strikethroughButton.svg');
+}
+
+.list-button
+{
+    -webkit-app-region: no-drag;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/listButton.svg');
+}
+
+.add-photo-button
+{
+    -webkit-app-region: no-drag;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/photoButton.svg');
+}
+
+.change-color-button
+{
+    -webkit-app-region: no-drag;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/colorButton.svg');
+}
+
+.show-memo-list-button
+{
+    -webkit-app-region: no-drag;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/showListButton.svg');
+}
+
+.delete-memo-button
+{
+    -webkit-app-region: no-drag;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-image: url('../../assets/buttons/memobar/deleteButton.svg');
 }
